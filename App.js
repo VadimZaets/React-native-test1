@@ -1,7 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import SecondScreen from "./screens/SecondScreen";
-import FirstScreen from "./screens/FirstScreen";
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
 import {
   useFonts,
   Poppins_400Regular,
@@ -10,7 +11,10 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
-import Gradient from "./components/Gradient";
+
+import MainScreen from "./screens/main/MainScreen";
+
+const MainStack = createStackNavigator();
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -24,18 +28,16 @@ export default function App() {
     return null;
   }
   return (
-    <Gradient>
-      <View style={styles.container}>
-        <SecondScreen />
-        {/* <FirstScreen /> */}
-        <StatusBar style="auto" />
-      </View>
-    </Gradient>
+    <NavigationContainer>
+      <MainStack.Navigator initialRouteName="MainScreen">
+        <MainStack.Screen
+          name="MainScreen"
+          component={MainScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </MainStack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

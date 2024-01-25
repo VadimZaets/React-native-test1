@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import globalStyles from "../styles";
+import globalStyles from "../../styles";
 import { LinearGradient } from "expo-linear-gradient";
 
 const SecondScreen = () => {
@@ -61,7 +61,6 @@ const SecondScreen = () => {
                 style={[globalStyles.textRegular, styles.input]}
                 placeholder="Your answer"
                 placeholderTextColor="#A4A9BF"
-                autoFocus
               />
             </LinearGradient>
           </View>
