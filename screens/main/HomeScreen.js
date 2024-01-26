@@ -1,8 +1,10 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet } from "react-native";
 import SecondScreen from "../home/SecondScreen";
 import FirstScreen from "../home/FirstScreen";
+
 const HomeStack = createStackNavigator();
+
 const HomeScreen = () => {
   return (
     <HomeStack.Navigator>
