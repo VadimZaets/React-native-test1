@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SettingsScreen from "./SettingsScreen";
 import LeaderBoardScreen from "./LeaderBoardScreen";
 import HomeScreen from "./HomeScreen";
+
 import HOME_SVG_Active from "../../assets/home-active.svg";
 import HOME_SVG from "../../assets/home.svg";
 import Leader_SVG_Active from "../../assets/leader-active.svg";
@@ -26,14 +27,9 @@ const MainScreen = () => {
           width: "100%",
           height: Platform.OS === "ios" ? 100 : 70,
           padding: 10,
-          backgroundColor: "transparent",
+          backgroundColor: "#E7EBFF",
           borderTopWidth: 0,
           elevation: 0,
-        },
-        tabBarLabelStyle: {
-          fontFamily: "Poppins_600SemiBold",
-
-          color: "#5F6F89",
         },
       }}
     >

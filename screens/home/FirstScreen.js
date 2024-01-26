@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Image,
   ScrollView,
@@ -6,146 +7,179 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import globalStyles from "../../styles";
+
 import { LinearGradient } from "expo-linear-gradient";
+
+import Background from "../../components/UI/Background";
+import Header from "../../components/UI/Header";
+
+import globalStyles from "../../styles";
 
 const FirstScreen = ({ navigation }) => {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <TouchableOpacity onPress={() => navigation.navigate("SecondScreen")}>
-          <LinearGradient
-            colors={["#fff", "#f1f3ff"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            locations={[0, 0.5]}
-            style={styles.riddle_gradient}
-          >
-            <View style={styles.riddle_container}>
-              <Image
-                source={require("../../assets/purple_gradient.png")}
-                style={styles.riddle_gradientPurple}
-              />
-              <Text style={[globalStyles.textExtraBold, styles.riddle_title]}>
-                Weekly Riddle
-              </Text>
-              <Text style={[globalStyles.textMedium, styles.riddle_text]}>
-                Riddles you need to solve weekly
-              </Text>
-            </View>
-          </LinearGradient>
-          <Image
-            source={require("../../assets/question.png")}
-            style={styles.riddle_image}
-          />
-        </TouchableOpacity>
+    <Background>
+      <ScrollView>
+        <View style={styles.container}>
+          <Header />
 
-        <View style={styles.years_wrap}>
-          <TouchableOpacity onPress={() => navigation.navigate("SecondScreen")}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("SecondScreen", {
+                selectedRiddle: "Weekly",
+              })
+            }
+          >
             <LinearGradient
               colors={["#fff", "#f1f3ff"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
-              locations={[0, 0.8]}
+              locations={[0, 0.5]}
               style={styles.riddle_gradient}
             >
-              <View style={styles.year_container}>
+              <View style={styles.riddle_container}>
                 <Image
-                  source={require("../../assets/orange_gradient.png")}
-                  style={styles.year_gradient}
+                  source={require("../../assets/purple_gradient.png")}
+                  style={styles.riddle_gradientPurple}
                 />
-
-                <Text style={[globalStyles.textExtraBold, styles.year_title]}>
-                  3 Days {"\n"}Exp. Riddles
+                <Text style={[globalStyles.textExtraBold, styles.riddle_title]}>
+                  Weekly Riddle
                 </Text>
-                <Text style={[globalStyles.textMedium, styles.year_text]}>
-                  3 days {"\n"}for solving
+                <Text style={[globalStyles.textMedium, styles.riddle_text]}>
+                  Riddles you need to solve weekly
                 </Text>
               </View>
             </LinearGradient>
             <Image
-              source={require("../../assets/number-three.png")}
-              style={styles.year_number}
+              source={require("../../assets/question.png")}
+              style={styles.riddle_image}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("SecondScreen")}>
+
+          <View style={styles.years_wrap}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("SecondScreen", {
+                  selectedRiddle: "3 days",
+                })
+              }
+            >
+              <LinearGradient
+                colors={["#fff", "#f1f3ff"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                locations={[0, 0.8]}
+                style={styles.riddle_gradient}
+              >
+                <View style={styles.year_container}>
+                  <Image
+                    source={require("../../assets/orange_gradient.png")}
+                    style={styles.year_gradient}
+                  />
+
+                  <Text style={[globalStyles.textExtraBold, styles.year_title]}>
+                    3 Days {"\n"}Exp. Riddles
+                  </Text>
+                  <Text style={[globalStyles.textMedium, styles.year_text]}>
+                    3 days {"\n"}for solving
+                  </Text>
+                </View>
+              </LinearGradient>
+              <Image
+                source={require("../../assets/number-three.png")}
+                style={styles.year_number}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("SecondScreen", {
+                  selectedRiddle: "1 day",
+                })
+              }
+            >
+              <LinearGradient
+                colors={["#fff", "#f1f3ff"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                locations={[0, 0.8]}
+                style={styles.riddle_gradient}
+              >
+                <View style={styles.year_container}>
+                  <Image
+                    source={require("../../assets/pink_gradient.png")}
+                    style={styles.year_gradientPink}
+                  />
+
+                  <Text style={[globalStyles.textExtraBold, styles.year_title]}>
+                    1 Day {"\n"}Exp. Riddles
+                  </Text>
+                  <Text style={[globalStyles.textMedium, styles.year_text]}>
+                    1 day {"\n"}for solving
+                  </Text>
+                </View>
+              </LinearGradient>
+              <Image
+                source={require("../../assets/number-one.png")}
+                style={styles.year_numberOne}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity
+            style={styles.special_touch}
+            onPress={() =>
+              navigation.navigate("SecondScreen", {
+                selectedRiddle: "Special",
+              })
+            }
+          >
             <LinearGradient
               colors={["#fff", "#f1f3ff"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
-              locations={[0, 0.8]}
+              locations={[0, 0.5]}
               style={styles.riddle_gradient}
             >
-              <View style={styles.year_container}>
+              <View style={styles.riddle_container}>
                 <Image
-                  source={require("../../assets/pink_gradient.png")}
-                  style={styles.year_gradientPink}
+                  source={require("../../assets/blue-red-gradient.png")}
+                  style={styles.riddle_blueRedGradient}
                 />
-
-                <Text style={[globalStyles.textExtraBold, styles.year_title]}>
-                  1 Day {"\n"}Exp. Riddles
+                <Text
+                  style={[globalStyles.textExtraBold, styles.special_title]}
+                >
+                  Special Brand Riddles
                 </Text>
-                <Text style={[globalStyles.textMedium, styles.year_text]}>
-                  1 day {"\n"}for solving
+                <Text style={[globalStyles.textMedium, styles.special_text]}>
+                  Riddles related with popular brands {"\n"}such as
                 </Text>
+                <View style={styles.brand_container}>
+                  <Image
+                    source={require("../../assets/nike.png")}
+                    style={styles.brands_image}
+                  />
+                  <Image
+                    source={require("../../assets/mcdonalds.png")}
+                    style={styles.brands_image}
+                  />
+                  <Image
+                    source={require("../../assets/lego.png")}
+                    style={styles.brands_image}
+                  />
+                </View>
               </View>
             </LinearGradient>
             <Image
-              source={require("../../assets/number-one.png")}
-              style={styles.year_numberOne}
+              source={require("../../assets/branding.png")}
+              style={styles.brand_image}
+            />
+            <Image
+              source={require("../../assets/box.png")}
+              style={styles.box_image}
             />
           </TouchableOpacity>
         </View>
-        {/*  */}
-        <TouchableOpacity
-          style={styles.special_touch}
-          onPress={() => navigation.navigate("SecondScreen")}
-        >
-          <LinearGradient
-            colors={["#fff", "#f1f3ff"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            locations={[0, 0.5]}
-            style={styles.riddle_gradient}
-          >
-            <View style={styles.riddle_container}>
-              <Image
-                source={require("../../assets/blue-red-gradient.png")}
-                style={styles.riddle_blueRedGradient}
-              />
-              <Text style={[globalStyles.textExtraBold, styles.special_title]}>
-                Special Brand Riddles
-              </Text>
-              <Text style={[globalStyles.textMedium, styles.special_text]}>
-                Riddles related with popular brands {"\n"}such as
-              </Text>
-              <View style={styles.brand_container}>
-                <Image
-                  source={require("../../assets/nike.png")}
-                  style={styles.brands_image}
-                />
-                <Image
-                  source={require("../../assets/mcdonalds.png")}
-                  style={styles.brands_image}
-                />
-                <Image
-                  source={require("../../assets/lego.png")}
-                  style={styles.brands_image}
-                />
-              </View>
-            </View>
-          </LinearGradient>
-          <Image
-            source={require("../../assets/branding.png")}
-            style={styles.brand_image}
-          />
-          <Image
-            source={require("../../assets/box.png")}
-            style={styles.box_image}
-          />
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </Background>
   );
 };
 
@@ -154,7 +188,7 @@ export default FirstScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 42,
+    paddingTop: 46,
     paddingHorizontal: 40,
   },
   riddle_container: {
