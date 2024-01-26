@@ -96,8 +96,11 @@ const FirstScreen = ({ navigation }) => {
             />
           </TouchableOpacity>
         </View>
-        {/* Я тут  */}
-        <TouchableOpacity onPress={() => navigation.navigate("SecondScreen")}>
+        {/*  */}
+        <TouchableOpacity
+          style={styles.special_touch}
+          onPress={() => navigation.navigate("SecondScreen")}
+        >
           <LinearGradient
             colors={["#fff", "#f1f3ff"]}
             start={{ x: 0, y: 0 }}
@@ -107,20 +110,38 @@ const FirstScreen = ({ navigation }) => {
           >
             <View style={styles.riddle_container}>
               <Image
-                source={require("../../assets/purple_gradient.png")}
-                style={styles.riddle_gradientPurple}
+                source={require("../../assets/blue-red-gradient.png")}
+                style={styles.riddle_blueRedGradient}
               />
-              <Text style={[globalStyles.textExtraBold, styles.year_title]}>
+              <Text style={[globalStyles.textExtraBold, styles.special_title]}>
                 Special Brand Riddles
               </Text>
-              <Text style={[globalStyles.textMedium, styles.riddle_text]}>
-                Riddles you need to solve weekly
+              <Text style={[globalStyles.textMedium, styles.special_text]}>
+                Riddles related with popular brands {"\n"}such as
               </Text>
+              <View style={styles.brand_container}>
+                <Image
+                  source={require("../../assets/nike.png")}
+                  style={styles.brands_image}
+                />
+                <Image
+                  source={require("../../assets/mcdonalds.png")}
+                  style={styles.brands_image}
+                />
+                <Image
+                  source={require("../../assets/lego.png")}
+                  style={styles.brands_image}
+                />
+              </View>
             </View>
           </LinearGradient>
           <Image
-            source={require("../../assets/question.png")}
-            style={styles.riddle_image}
+            source={require("../../assets/branding.png")}
+            style={styles.brand_image}
+          />
+          <Image
+            source={require("../../assets/box.png")}
+            style={styles.box_image}
           />
         </TouchableOpacity>
       </View>
@@ -238,5 +259,47 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: "#5F6F89",
     zIndex: 2,
+  },
+  special_touch: {
+    marginTop: 20,
+  },
+  brand_image: {
+    position: "absolute",
+    top: -20,
+    right: -50,
+    width: 220,
+    height: 210,
+  },
+  brands_image: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  box_image: {
+    position: "absolute",
+    top: 60,
+    right: 100,
+    width: 80,
+    height: 96,
+  },
+  riddle_blueRedGradient: {
+    position: "absolute",
+    right: -50,
+  },
+  special_title: {
+    width: 116,
+    fontSize: 16,
+    lineHeight: 22,
+  },
+  special_text: {
+    width: 130,
+    fontSize: 12,
+    lineHeight: 18,
+    marginTop: 20,
+  },
+  brand_container: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 18,
   },
 });
